@@ -160,7 +160,7 @@ if __name__ == "__main__":
                     fw.write('{}'.format(line))
                     isPreText = True
                 else:
-                    fw.write('\n</br>\n{}'.format(line))
+                    fw.write('\n<br/>\n{}'.format(line))
             elif isPOpened is True:
                 isPOpened = False
                 isPreText = False
