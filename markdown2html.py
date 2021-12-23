@@ -91,10 +91,15 @@ if __name__ == "__main__":
     fw = open(sys.argv[2], 'w')
 
     for line in inFile:
-
         # Validate first 2 characters
         if line.find('# ') == 0 or line.find('##') == 0 or \
                 line.find('- ') == 0 or line.find('* ') == 0:
+
+            # close previous paragraph
+            if isPOpened is True:
+                isPOpened = False
+                isPreText = False
+                fw.write('\n</p>\n')
 
             # Validate heading levels
             if line.find('#') == 0:
