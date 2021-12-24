@@ -58,6 +58,8 @@ def add_inline_tags(ln="", st="", o_tag="", c_tag=""):
                 text += c_tag
                 tag_opened = False
             text += spline[i]
+        if text.find(o_tag + c_tag) != -1:
+            text = text.replace(o_tag + c_tag, st + st)
         return text
     else:
         return ln

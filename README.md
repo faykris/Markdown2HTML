@@ -1,2 +1,2 @@
-* ____ __other text__
-* __second line__**** **third bold**
+- **other text** **** hi
+- __second line__ **** **third bold**
