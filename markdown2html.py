@@ -52,10 +52,16 @@ def add_inline_tags(ln="", st="", o_tag="", c_tag=""):
         spline = ln.split(st)
         for i in range(len(spline)):
             if i % 2 != 0 and tag_opened is False:
-                text += o_tag
+                if spline[i] != '':
+                    text += o_tag
+                else:
+                    text += st
                 tag_opened = True
             elif i % 2 == 0 and tag_opened is True:
-                text += c_tag
+                if spline[i] != '':
+                    text += c_tag
+                else:
+                    text += st
                 tag_opened = False
             text += spline[i]
         return text
