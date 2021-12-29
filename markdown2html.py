@@ -13,7 +13,7 @@ def remove_c_inline(ln=""):
     if ln.find("((") != -1 and ln.find("))") != -1:
         reg_exp = '{}({}(|{}){})'.format('\\', '\\', '\\', '\\')
         spline = re.split(reg_exp, ln)
-        for i in range(len(spline) - 1):
+        for i in range(len(spline)):
             if i % 2 != 0:
                 for j, char in enumerate(spline[i]):
                     if char != 'C' and char != 'c':
@@ -32,7 +32,7 @@ def parse_inline_to_md5(ln=""):
     if ln.find("[[") != -1 and ln.find("]]") != -1:
         reg_exp = '{}[{}[|{}]{}]'.format('\\', '\\', '\\', '\\')
         spline = re.split(reg_exp, ln)
-        for i in range(len(spline) - 1):
+        for i in range(len(spline)):
             if i % 2 != 0:
                 hash_object = hashlib.md5(spline[i].encode())
                 md5_hash = hash_object.hexdigest()
