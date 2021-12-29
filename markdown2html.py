@@ -108,6 +108,8 @@ if __name__ == "__main__":
                 for head in headers:
                     if line.find(head) == 0:
                         hText = line.split(head)[1]
+                        hText = add_inline_tags(hText, "**", "<b>", "</b>")
+                        hText = add_inline_tags(hText, "__", "<em>", "</em>")
                         fw.write("{}{}{}".format(hOpTags[head],
                                                  hText,
                                                  hClTags[head]))
